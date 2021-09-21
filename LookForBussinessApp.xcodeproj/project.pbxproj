@@ -21,6 +21,8 @@
 		2E8629ED26FA502800E59C48 /* BusinessDetailSceneComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629EC26FA502800E59C48 /* BusinessDetailSceneComposer.swift */; };
 		2E8629F126FA50DB00E59C48 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629F026FA50DB00E59C48 /* UIViewExtension.swift */; };
 		2E8629F326FA694F00E59C48 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629F226FA694F00E59C48 /* MapView.swift */; };
+		2E8629F826FA80AD00E59C48 /* LookForBussiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8629F726FA80AD00E59C48 /* LookForBussiness.framework */; };
+		2E8629F926FA80AD00E59C48 /* LookForBussiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8629F726FA80AD00E59C48 /* LookForBussiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +41,20 @@
 			remoteInfo = LookForBussinessApp;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2E8629FA26FA80AD00E59C48 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2E8629F926FA80AD00E59C48 /* LookForBussiness.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2E86298926F91A1100E59C48 /* LookForBussinessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LookForBussinessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +77,7 @@
 		2E8629EC26FA502800E59C48 /* BusinessDetailSceneComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailSceneComposer.swift; sourceTree = "<group>"; };
 		2E8629F026FA50DB00E59C48 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		2E8629F226FA694F00E59C48 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2E8629F726FA80AD00E59C48 /* LookForBussiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LookForBussiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8629F826FA80AD00E59C48 /* LookForBussiness.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +113,7 @@
 				2E8629A226F91A1300E59C48 /* LookForBussinessAppTests */,
 				2E8629AD26F91A1300E59C48 /* LookForBussinessAppUITests */,
 				2E86298A26F91A1100E59C48 /* Products */,
+				2E8629F626FA80AD00E59C48 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -194,6 +213,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		2E8629F626FA80AD00E59C48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E8629F726FA80AD00E59C48 /* LookForBussiness.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -204,6 +231,7 @@
 				2E86298526F91A1100E59C48 /* Sources */,
 				2E86298626F91A1100E59C48 /* Frameworks */,
 				2E86298726F91A1100E59C48 /* Resources */,
+				2E8629FA26FA80AD00E59C48 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -502,7 +530,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R7J3GQ72T5;
-				INFOPLIST_FILE = LookForBussinessApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/LookForBussinessApp/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -521,7 +549,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R7J3GQ72T5;
-				INFOPLIST_FILE = LookForBussinessApp/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/LookForBussinessApp/App/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
