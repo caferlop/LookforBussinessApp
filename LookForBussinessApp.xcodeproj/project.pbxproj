@@ -9,12 +9,18 @@
 /* Begin PBXBuildFile section */
 		2E86298D26F91A1100E59C48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E86298C26F91A1100E59C48 /* AppDelegate.swift */; };
 		2E86298F26F91A1100E59C48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E86298E26F91A1100E59C48 /* SceneDelegate.swift */; };
-		2E86299126F91A1100E59C48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E86299026F91A1100E59C48 /* ViewController.swift */; };
-		2E86299426F91A1100E59C48 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E86299226F91A1100E59C48 /* Main.storyboard */; };
 		2E86299626F91A1200E59C48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E86299526F91A1200E59C48 /* Assets.xcassets */; };
 		2E86299926F91A1200E59C48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E86299726F91A1200E59C48 /* LaunchScreen.storyboard */; };
 		2E8629A426F91A1300E59C48 /* LookForBussinessAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629A326F91A1300E59C48 /* LookForBussinessAppTests.swift */; };
 		2E8629AF26F91A1300E59C48 /* LookForBussinessAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629AE26F91A1300E59C48 /* LookForBussinessAppUITests.swift */; };
+		2E8629DF26FA454E00E59C48 /* MapViewBusinessSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629DE26FA454E00E59C48 /* MapViewBusinessSearchViewController.swift */; };
+		2E8629E126FA456300E59C48 /* MapViewBusinessSearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629E026FA456300E59C48 /* MapViewBusinessSearchPresenter.swift */; };
+		2E8629E326FA4AC900E59C48 /* BusinessDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629E226FA4AC900E59C48 /* BusinessDetailTableViewController.swift */; };
+		2E8629E726FA4BB300E59C48 /* BusinessDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629E626FA4BB300E59C48 /* BusinessDetailPresenter.swift */; };
+		2E8629EB26FA501800E59C48 /* MapViewBusinessSearchSceneComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629EA26FA501800E59C48 /* MapViewBusinessSearchSceneComposer.swift */; };
+		2E8629ED26FA502800E59C48 /* BusinessDetailSceneComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629EC26FA502800E59C48 /* BusinessDetailSceneComposer.swift */; };
+		2E8629F126FA50DB00E59C48 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629F026FA50DB00E59C48 /* UIViewExtension.swift */; };
+		2E8629F326FA694F00E59C48 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629F226FA694F00E59C48 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +44,6 @@
 		2E86298926F91A1100E59C48 /* LookForBussinessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LookForBussinessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E86298C26F91A1100E59C48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E86298E26F91A1100E59C48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2E86299026F91A1100E59C48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2E86299326F91A1100E59C48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E86299526F91A1200E59C48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E86299826F91A1200E59C48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2E86299A26F91A1200E59C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +53,14 @@
 		2E8629AA26F91A1300E59C48 /* LookForBussinessAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LookForBussinessAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E8629AE26F91A1300E59C48 /* LookForBussinessAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LookForBussinessAppUITests.swift; sourceTree = "<group>"; };
 		2E8629B026F91A1300E59C48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E8629DE26FA454E00E59C48 /* MapViewBusinessSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewBusinessSearchViewController.swift; sourceTree = "<group>"; };
+		2E8629E026FA456300E59C48 /* MapViewBusinessSearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewBusinessSearchPresenter.swift; sourceTree = "<group>"; };
+		2E8629E226FA4AC900E59C48 /* BusinessDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailTableViewController.swift; sourceTree = "<group>"; };
+		2E8629E626FA4BB300E59C48 /* BusinessDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailPresenter.swift; sourceTree = "<group>"; };
+		2E8629EA26FA501800E59C48 /* MapViewBusinessSearchSceneComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewBusinessSearchSceneComposer.swift; sourceTree = "<group>"; };
+		2E8629EC26FA502800E59C48 /* BusinessDetailSceneComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailSceneComposer.swift; sourceTree = "<group>"; };
+		2E8629F026FA50DB00E59C48 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		2E8629F226FA694F00E59C48 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +111,10 @@
 		2E86298B26F91A1100E59C48 /* LookForBussinessApp */ = {
 			isa = PBXGroup;
 			children = (
-				2E86298C26F91A1100E59C48 /* AppDelegate.swift */,
-				2E86298E26F91A1100E59C48 /* SceneDelegate.swift */,
-				2E86299026F91A1100E59C48 /* ViewController.swift */,
-				2E86299226F91A1100E59C48 /* Main.storyboard */,
-				2E86299526F91A1200E59C48 /* Assets.xcassets */,
+				2E8629E926FA4FB700E59C48 /* App */,
+				2E8629E826FA4F8900E59C48 /* Scenes */,
+				2E8629EF26FA507400E59C48 /* Extensions */,
 				2E86299726F91A1200E59C48 /* LaunchScreen.storyboard */,
-				2E86299A26F91A1200E59C48 /* Info.plist */,
 			);
 			path = LookForBussinessApp;
 			sourceTree = "<group>";
@@ -126,6 +135,63 @@
 				2E8629B026F91A1300E59C48 /* Info.plist */,
 			);
 			path = LookForBussinessAppUITests;
+			sourceTree = "<group>";
+		};
+		2E8629DC26FA439A00E59C48 /* MapViewBusinessSearchScene */ = {
+			isa = PBXGroup;
+			children = (
+				2E8629EE26FA505500E59C48 /* MapView */,
+				2E8629DE26FA454E00E59C48 /* MapViewBusinessSearchViewController.swift */,
+				2E8629E026FA456300E59C48 /* MapViewBusinessSearchPresenter.swift */,
+				2E8629EA26FA501800E59C48 /* MapViewBusinessSearchSceneComposer.swift */,
+			);
+			path = MapViewBusinessSearchScene;
+			sourceTree = "<group>";
+		};
+		2E8629DD26FA43B900E59C48 /* BusinessDetailScene */ = {
+			isa = PBXGroup;
+			children = (
+				2E8629E226FA4AC900E59C48 /* BusinessDetailTableViewController.swift */,
+				2E8629E626FA4BB300E59C48 /* BusinessDetailPresenter.swift */,
+				2E8629EC26FA502800E59C48 /* BusinessDetailSceneComposer.swift */,
+			);
+			path = BusinessDetailScene;
+			sourceTree = "<group>";
+		};
+		2E8629E826FA4F8900E59C48 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				2E8629DC26FA439A00E59C48 /* MapViewBusinessSearchScene */,
+				2E8629DD26FA43B900E59C48 /* BusinessDetailScene */,
+			);
+			path = "\bScenes";
+			sourceTree = "<group>";
+		};
+		2E8629E926FA4FB700E59C48 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2E86298C26F91A1100E59C48 /* AppDelegate.swift */,
+				2E86298E26F91A1100E59C48 /* SceneDelegate.swift */,
+				2E86299526F91A1200E59C48 /* Assets.xcassets */,
+				2E86299A26F91A1200E59C48 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		2E8629EE26FA505500E59C48 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				2E8629F226FA694F00E59C48 /* MapView.swift */,
+			);
+			path = MapView;
+			sourceTree = "<group>";
+		};
+		2E8629EF26FA507400E59C48 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2E8629F026FA50DB00E59C48 /* UIViewExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +299,6 @@
 			files = (
 				2E86299926F91A1200E59C48 /* LaunchScreen.storyboard in Resources */,
 				2E86299626F91A1200E59C48 /* Assets.xcassets in Resources */,
-				2E86299426F91A1100E59C48 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +323,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E86299126F91A1100E59C48 /* ViewController.swift in Sources */,
+				2E8629E726FA4BB300E59C48 /* BusinessDetailPresenter.swift in Sources */,
 				2E86298D26F91A1100E59C48 /* AppDelegate.swift in Sources */,
+				2E8629EB26FA501800E59C48 /* MapViewBusinessSearchSceneComposer.swift in Sources */,
+				2E8629ED26FA502800E59C48 /* BusinessDetailSceneComposer.swift in Sources */,
+				2E8629E326FA4AC900E59C48 /* BusinessDetailTableViewController.swift in Sources */,
+				2E8629DF26FA454E00E59C48 /* MapViewBusinessSearchViewController.swift in Sources */,
+				2E8629F126FA50DB00E59C48 /* UIViewExtension.swift in Sources */,
+				2E8629F326FA694F00E59C48 /* MapView.swift in Sources */,
 				2E86298F26F91A1100E59C48 /* SceneDelegate.swift in Sources */,
+				2E8629E126FA456300E59C48 /* MapViewBusinessSearchPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +368,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2E86299226F91A1100E59C48 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2E86299326F91A1100E59C48 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2E86299726F91A1200E59C48 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
