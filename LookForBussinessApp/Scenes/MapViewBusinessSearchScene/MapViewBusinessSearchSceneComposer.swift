@@ -6,9 +6,14 @@
 //
 
 import Foundation
+import LookForBussiness
 
 public final class MapViewBusinessSearchSceneComposer {
-    static func makeMapViewBusinessSearchViewController(mapView: Mapable, presenter: MapViewSearchable) -> MapViewBusinessSearchViewController {
-        return MapViewBusinessSearchViewController(mapView: mapView, presenter: presenter)
+    static func makeMapViewBusinessSearchPresenter(getBusinesses: BusinessSearchable) -> MapViewBusinessSearchPresenter {
+        return MapViewBusinessSearchPresenter(getBusinesses: getBusinesses)
+    }
+    static func makeMapViewBusinessSearchViewController(getBusinesses: BusinessSearchable, coordinator: MainCoordinator) -> MapViewBusinessSearchViewController {
+        let presenter = makeMapViewBusinessSearchPresenter(getBusinesses: getBusinesses)
+        return MapViewBusinessSearchViewController(mapView: MapView(), presenter: presenter, coordinator: coordinator)
     }
 }
