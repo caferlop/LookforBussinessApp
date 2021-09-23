@@ -13,6 +13,6 @@ Now you are set to use the app. The app consist in a first view, which will look
 businesses taking as a center the center of the map.
 If you tap in one of the annotations, it will open a simple detail show business details, like a picture, name, phone and address.
 
-It´s a basic app, but it is programmed to be scalable, using an MVP + Coordinator arquitecture pattern, followinf the solid principles.
+It´s a basic app, but it is programmed to be scalable, using an MVP + Coordinator arquitecture pattern, following the solid principles.
 
 Within the framework, you´ll find one of the use cases unit tested.
