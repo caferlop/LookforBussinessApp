@@ -43,6 +43,20 @@
 			remoteGlobalIDString = 2E86298826F91A1100E59C48;
 			remoteInfo = LookForBussinessApp;
 		};
+		2ECE0F5B26FC08C4004E0553 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ECE0F5626FC08C4004E0553 /* LookForBussiness.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2E86296626F9198700E59C48;
+			remoteInfo = LookForBussiness;
+		};
+		2ECE0F5D26FC08C4004E0553 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2ECE0F5626FC08C4004E0553 /* LookForBussiness.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2E86296F26F9198700E59C48;
+			remoteInfo = LookForBussinessTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -84,6 +98,7 @@
 		2ECE0F4526FBC277004E0553 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2ECE0F4726FBC8DA004E0553 /* BusinessDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailsViewController.swift; sourceTree = "<group>"; };
 		2ECE0F4926FBCF10004E0553 /* BusinessDetailsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailsDataModel.swift; sourceTree = "<group>"; };
+		2ECE0F5626FC08C4004E0553 /* LookForBussiness.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LookForBussiness.xcodeproj; path = ../LookForBussiness/LookForBussiness.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +241,7 @@
 			isa = PBXGroup;
 			children = (
 				2E8629F726FA80AD00E59C48 /* LookForBussiness.framework */,
+				2ECE0F5626FC08C4004E0553 /* LookForBussiness.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -236,6 +252,15 @@
 				2ECE0F4526FBC277004E0553 /* Coordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		2ECE0F5726FC08C4004E0553 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2ECE0F5C26FC08C4004E0553 /* LookForBussiness.framework */,
+				2ECE0F5E26FC08C4004E0553 /* LookForBussinessTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +353,12 @@
 			mainGroup = 2E86298026F91A1100E59C48;
 			productRefGroup = 2E86298A26F91A1100E59C48 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 2ECE0F5726FC08C4004E0553 /* Products */;
+					ProjectRef = 2ECE0F5626FC08C4004E0553 /* LookForBussiness.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				2E86298826F91A1100E59C48 /* LookForBussinessApp */,
@@ -336,6 +367,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		2ECE0F5C26FC08C4004E0553 /* LookForBussiness.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LookForBussiness.framework;
+			remoteRef = 2ECE0F5B26FC08C4004E0553 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		2ECE0F5E26FC08C4004E0553 /* LookForBussinessTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = LookForBussinessTests.xctest;
+			remoteRef = 2ECE0F5D26FC08C4004E0553 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2E86298726F91A1100E59C48 /* Resources */ = {
