@@ -10,8 +10,8 @@ import UIKit
 class BusinessDetailsViewController: UIViewController {
     
     private let presenter: BusinesViewDetailable
-    private let businessId: String
-    weak var coordinator: MainCoordinator?
+    var businessId: String?
+    weak var coordinator: Coordinator?
     
     var businessDetailDataModel: BusinessDetailsDataModel? {
         didSet {
@@ -60,10 +60,8 @@ class BusinessDetailsViewController: UIViewController {
     }()
     
     // To change MainCoordinator dependency with an interface
-    init(businessId: String, presenter: BusinesViewDetailable, coordinator: MainCoordinator) {
-        self.businessId = businessId
+    init(presenter: BusinesViewDetailable) {
         self.presenter = presenter
-        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -111,17 +109,20 @@ class BusinessDetailsViewController: UIViewController {
     }
     
     private func getBusinessDetails() {
-        self.presenter.getBusinessDetails(id: self.businessId) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let businessDetailDataModel):
-                self.businessDetailDataModel = businessDetailDataModel
-            case .failure(let error):
-                DispatchQueue.main.async {
-                    self.coordinator?.showAlerWithTitle(title: "Error", message: error.localizedDescription)
+        if let businessId = self.businessId {
+            self.presenter.getBusinessDetails(id: businessId) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let businessDetailDataModel):
+                    self.businessDetailDataModel = businessDetailDataModel
+                case .failure(let error):
+                    DispatchQueue.main.async {
+                        self.coordinator?.showAlerWithTitle(title: "Error", message: error.localizedDescription)
+                    }
                 }
             }
         }
+        
     }
     
 }

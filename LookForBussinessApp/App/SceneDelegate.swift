@@ -11,7 +11,7 @@ import LookForBussiness
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var coordinator: MainCoordinator?
+    var coordinator: KickOffCoordinator?
     
     private lazy var remoteStore: HTTPClient = {
         GenericHTTPClient(session: URLSession(configuration: .default))
@@ -24,17 +24,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private lazy var getBusinessDetailsUseCase: GetBusinessDetail = {
         GetBusinessDetail(restClient: remoteStore)
     }()
+    
+    private lazy var mapViewBusinessSearchViewController: MapViewBusinessSearchViewController = {
+        MapViewBusinessSearchSceneComposer.makeMapViewBusinessSearchViewController(getBusinesses: getBusinessUseCase)
+    }()
+    
+    private lazy var businessDetailsViewController: BusinessDetailsViewController = {
+        BusinessDetailSceneComposer.makeBusinessDetailsViewController(getBusinessDetails: getBusinessDetailsUseCase)
+    }()
+        
 
     func setUpScene(windowScene: UIWindowScene, window: UIWindow) {
         let navigationController = UINavigationController()
+        self.window = window
+        coordinator = KickOffCoordinator(navigationController: navigationController, mapViewBusinessesSearch: mapViewBusinessSearchViewController)
+        coordinator?.businessDetailsViewController = businessDetailsViewController
         
-        coordinator = MainCoordinator(navigationController: navigationController, getBusinessUseCase: self.getBusinessUseCase, getBusinessDetailsUseCase: self.getBusinessDetailsUseCase)
         coordinator?.start()
         
-        window.windowScene = windowScene
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-        self.window = window
+        
+        self.window?.windowScene = windowScene
+        self.window?.rootViewController = navigationController
+        self.window?.makeKeyAndVisible()
+        
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

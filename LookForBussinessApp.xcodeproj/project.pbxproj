@@ -22,6 +22,8 @@
 		2E8629F326FA694F00E59C48 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8629F226FA694F00E59C48 /* MapView.swift */; };
 		2E8629F826FA80AD00E59C48 /* LookForBussiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8629F726FA80AD00E59C48 /* LookForBussiness.framework */; };
 		2E8629F926FA80AD00E59C48 /* LookForBussiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8629F726FA80AD00E59C48 /* LookForBussiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2E9E494926FFBAED00082DBD /* KickOffCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9E494826FFBAED00082DBD /* KickOffCoordinator.swift */; };
+		2E9E494D26FFCAA100082DBD /* BusinessDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9E494C26FFCAA100082DBD /* BusinessDetailsCoordinator.swift */; };
 		2ECE0F4126FA8833004E0553 /* MapViewBusinessSearchDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECE0F4026FA8833004E0553 /* MapViewBusinessSearchDataModel.swift */; };
 		2ECE0F4626FBC277004E0553 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECE0F4526FBC277004E0553 /* Coordinator.swift */; };
 		2ECE0F4826FBC8DA004E0553 /* BusinessDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECE0F4726FBC8DA004E0553 /* BusinessDetailsViewController.swift */; };
@@ -80,6 +82,8 @@
 		2E8629F026FA50DB00E59C48 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2E8629F226FA694F00E59C48 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2E8629F726FA80AD00E59C48 /* LookForBussiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LookForBussiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E9E494826FFBAED00082DBD /* KickOffCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KickOffCoordinator.swift; sourceTree = "<group>"; };
+		2E9E494C26FFCAA100082DBD /* BusinessDetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailsCoordinator.swift; sourceTree = "<group>"; };
 		2ECE0F4026FA8833004E0553 /* MapViewBusinessSearchDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewBusinessSearchDataModel.swift; sourceTree = "<group>"; };
 		2ECE0F4526FBC277004E0553 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		2ECE0F4726FBC8DA004E0553 /* BusinessDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailsViewController.swift; sourceTree = "<group>"; };
@@ -234,6 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				2ECE0F4526FBC277004E0553 /* Coordinator.swift */,
+				2E9E494826FFBAED00082DBD /* KickOffCoordinator.swift */,
+				2E9E494C26FFCAA100082DBD /* BusinessDetailsCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -370,6 +376,7 @@
 			files = (
 				2E8629E726FA4BB300E59C48 /* BusinessDetailPresenter.swift in Sources */,
 				2E86298D26F91A1100E59C48 /* AppDelegate.swift in Sources */,
+				2E9E494926FFBAED00082DBD /* KickOffCoordinator.swift in Sources */,
 				2ECE0F4126FA8833004E0553 /* MapViewBusinessSearchDataModel.swift in Sources */,
 				2E8629EB26FA501800E59C48 /* MapViewBusinessSearchSceneComposer.swift in Sources */,
 				2E8629ED26FA502800E59C48 /* BusinessDetailSceneComposer.swift in Sources */,
@@ -380,6 +387,7 @@
 				2ECE0F4626FBC277004E0553 /* Coordinator.swift in Sources */,
 				2E8629F326FA694F00E59C48 /* MapView.swift in Sources */,
 				2E86298F26F91A1100E59C48 /* SceneDelegate.swift in Sources */,
+				2E9E494D26FFCAA100082DBD /* BusinessDetailsCoordinator.swift in Sources */,
 				2E8629E126FA456300E59C48 /* MapViewBusinessSearchPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

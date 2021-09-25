@@ -13,8 +13,8 @@ public final class BusinessDetailSceneComposer {
     static func makeBusinessDetailsPresenter(getBusinessesDetails: BusinessDetailable) -> BusinesViewDetailable {
         return BusinessDetailsPresenter(getBusinessDetail:getBusinessesDetails)
     }
-    static func makeBusinessDetailsViewController(id: String, getBusinessDetails: BusinessDetailable, coordinator: MainCoordinator) -> BusinessDetailsViewController {
+    static func makeBusinessDetailsViewController(getBusinessDetails: BusinessDetailable) -> BusinessDetailsViewController {
         let presenter = makeBusinessDetailsPresenter(getBusinessesDetails: getBusinessDetails)
-        return BusinessDetailsViewController(businessId: id, presenter: presenter, coordinator: coordinator)
+        return BusinessDetailsViewController(presenter: presenter)
     }
 }

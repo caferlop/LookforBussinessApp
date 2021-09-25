@@ -11,7 +11,7 @@ class MapViewBusinessSearchViewController: UIViewController {
     
     private let mapView: Mapable
     private let presenter: MapViewSearchable
-    weak var coordinator: MainCoordinator?
+    weak var coordinator: Coordinator?
     
     var mapViewBusinessSearchDataModel: MapViewBusinessSearchDataModel? {
         didSet {
@@ -20,11 +20,10 @@ class MapViewBusinessSearchViewController: UIViewController {
             }
         }
     }
-    // To change MainCoordinator dependency with an interface
-    init(mapView: Mapable, presenter: MapViewSearchable, coordinator: MainCoordinator) {
+   
+    init(mapView: Mapable, presenter: MapViewSearchable) {
         self.mapView = mapView
         self.presenter = presenter
-        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -52,8 +51,10 @@ class MapViewBusinessSearchViewController: UIViewController {
     
     private func selectedBusinessLocation() {
         self.mapView.selectedLocation = { [weak self] id in
-            self?.coordinator?.getBusinessDetails(id: id)
-            print("Selected location id:", id)
+            if let kickOffCoordinator = self?.coordinator as? KickOffCoordinator {
+                kickOffCoordinator.goToBusinessDetails(id: id)
+                print("Selected location id:", id)
+            }
         }
     }
     
