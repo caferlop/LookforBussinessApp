@@ -46,29 +46,28 @@ class MapViewBusinessSearchViewController: UIViewController {
         self.mapView.view.backgroundColor = .red
         self.mapView.view.pinEdges(to: self.view)
         self.mapView.setUpMapView()
-        
+        self.presenter.requestLocation()
     }
     
     private func selectedBusinessLocation() {
-        self.mapView.selectedLocation = { [weak self] id in
+        self.mapView.mapViewDelegate?.selectedAnnotation = { [weak self] id in
             if let kickOffCoordinator = self?.coordinator as? KickOffCoordinator {
                 kickOffCoordinator.goToBusinessDetails(id: id)
                 print("Selected location id:", id)
             }
         }
     }
-    
+
     private func gottenCurrentLocation() {
-        self.mapView.currentLocation = { [weak self] currentCoordinates in
+        self.presenter.loadBusinessesListener = { [weak self] result in
             guard let self = self else { return }
-            self.presenter.loadBussinessesByLocation(coordinates: currentCoordinates) { [weak self] result in
-                guard let self = self else { return }
-                switch result {
-                case .success(let mapViewDataModel):
-                    DispatchQueue.main.async {
-                        self.mapViewBusinessSearchDataModel = mapViewDataModel
-                    }
-                case .failure(let error):
+            switch result {
+            case .success(let mapViewDataModel):
+                DispatchQueue.main.async {
+                    self.mapViewBusinessSearchDataModel = mapViewDataModel
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
                     self.coordinator?.showAlerWithTitle(title: "Error", message: error.localizedDescription)
                 }
             }

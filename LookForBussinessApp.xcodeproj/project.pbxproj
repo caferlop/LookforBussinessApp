@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2E684C8C2700A56B00B026EC /* AppFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E684C8B2700A56B00B026EC /* AppFactory.swift */; };
+		2E684C8E2700B61400B026EC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E684C8D2700B61400B026EC /* LocationManager.swift */; };
+		2E684C902700C2E100B026EC /* MapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E684C8F2700C2E100B026EC /* MapViewDelegate.swift */; };
 		2E832C7C27009F48009F7DFD /* KickOffCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E832C7A27009F46009F7DFD /* KickOffCoordinator.swift */; };
 		2E832C7D27009F48009F7DFD /* BusinessDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E832C7B27009F48009F7DFD /* BusinessDetailsCoordinator.swift */; };
 		2E86298D26F91A1100E59C48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E86298C26F91A1100E59C48 /* AppDelegate.swift */; };
@@ -64,6 +66,8 @@
 
 /* Begin PBXFileReference section */
 		2E684C8B2700A56B00B026EC /* AppFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFactory.swift; sourceTree = "<group>"; };
+		2E684C8D2700B61400B026EC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		2E684C8F2700C2E100B026EC /* MapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewDelegate.swift; sourceTree = "<group>"; };
 		2E832C7A27009F46009F7DFD /* KickOffCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KickOffCoordinator.swift; sourceTree = "<group>"; };
 		2E832C7B27009F48009F7DFD /* BusinessDetailsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDetailsCoordinator.swift; sourceTree = "<group>"; };
 		2E86298926F91A1100E59C48 /* LookForBussinessApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LookForBussinessApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,6 +221,8 @@
 			isa = PBXGroup;
 			children = (
 				2E8629F226FA694F00E59C48 /* MapView.swift */,
+				2E684C8F2700C2E100B026EC /* MapViewDelegate.swift */,
+				2E684C8D2700B61400B026EC /* LocationManager.swift */,
 			);
 			path = MapView;
 			sourceTree = "<group>";
@@ -377,7 +383,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E684C902700C2E100B026EC /* MapViewDelegate.swift in Sources */,
 				2E8629E726FA4BB300E59C48 /* BusinessDetailPresenter.swift in Sources */,
+				2E684C8E2700B61400B026EC /* LocationManager.swift in Sources */,
 				2E86298D26F91A1100E59C48 /* AppDelegate.swift in Sources */,
 				2E832C7C27009F48009F7DFD /* KickOffCoordinator.swift in Sources */,
 				2ECE0F4126FA8833004E0553 /* MapViewBusinessSearchDataModel.swift in Sources */,

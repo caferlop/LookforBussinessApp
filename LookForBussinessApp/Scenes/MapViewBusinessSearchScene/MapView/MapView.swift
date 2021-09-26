@@ -11,27 +11,26 @@ import CoreLocation
 
 protocol Mapable: AnyObject {
     var view: UIView { get }
-    var selectedLocation: (String) -> Void { get set }
-    var currentLocation: (_ Coordinates: Coordinates) -> Void { get set }
+    var mapViewDelegate: MapViewDelegatable? { get set }
     func passLocations(locations:[BusinessLocation])
     func setUpMapView()
 }
 
-struct Coordinates {
-    let latitude: Double
-    let longitude: Double
+public struct Coordinates {
+    public let latitude: Double
+    public let longitude: Double
 }
 
-struct BusinessLocation {
-    let id: String
-    let name: String
-    let coordinates: Coordinates
+public struct BusinessLocation {
+    public let id: String
+    public let name: String
+    public let coordinates: Coordinates
 }
 
-fileprivate final class BusinessAnnotations: NSObject, MKAnnotation {
-    var title: String?
-    var id: String
-    var coordinate: CLLocationCoordinate2D
+public final class BusinessAnnotations: NSObject, MKAnnotation {
+    public var title: String?
+    public var id: String
+    public var coordinate: CLLocationCoordinate2D
 
     init(title: String, coordinate: CLLocationCoordinate2D, id: String) {
         self.title = title
@@ -44,23 +43,31 @@ class MapView: UIView {
     
     private let mkMapView = MKMapView()
     private var selectedAnnotation: (String) -> Void = { _ in }
-    private var personalLocation: (Coordinates) -> Void = { _ in }
-    private let locationManager = CLLocationManager()
-    
+    var mapDelegate: MapViewDelegatable?
     override init(frame: CGRect) {
         super.init(frame: frame)
-        mkMapView.delegate = self
-        locationManager.delegate = self
-        locationManager.requestLocation()
-        locationManager.requestAlwaysAuthorization()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    func setDelegate(mapViewDelegate: MapViewDelegatable) {
+        mkMapView.delegate = mapViewDelegate
+        self.mapDelegate = mapViewDelegate
+    }
 }
 
 extension MapView: Mapable {
+    
+    var mapViewDelegate: MapViewDelegatable? {
+        get {
+            return self.mapDelegate
+        }
+        set {
+            self.mapDelegate = newValue
+        }
+    }
     
     var selectedLocation: (String) -> Void {
         get {
@@ -68,15 +75,6 @@ extension MapView: Mapable {
         }
         set {
             self.selectedAnnotation = newValue
-        }
-    }
-    
-    var currentLocation: (Coordinates) -> Void {
-        get {
-            return self.personalLocation
-        }
-        set {
-            self.personalLocation = newValue
         }
     }
     
@@ -88,6 +86,7 @@ extension MapView: Mapable {
         DispatchQueue.main.async {
             let annotations = locations.toMKAnnotations()
             self.mkMapView.addAnnotations(annotations)
+            self.setCenterInMap(location: locations.first?.coordinates)
         }
     }
     
@@ -99,53 +98,13 @@ extension MapView: Mapable {
         mkMapView.isScrollEnabled = true
     }
     
-    private func setCenterInMap(location: Coordinates) {
-        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        let region = MKCoordinateRegion(center: location.toCLLocationCoordinate2D(), span: span)
-        mkMapView.setRegion(region, animated: true)
-    }
-}
-
-extension MapView: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        let businessAnnotations = view.annotation as? BusinessAnnotations
-        self.selectedAnnotation(businessAnnotations?.id ?? "")
-    }
-    
-    func mapView(_ myMap: MKMapView, regionDidChangeAnimated animated: Bool) {
-        let center = myMap.centerCoordinate
-        let coordinates = Coordinates(latitude: center.latitude, longitude: center.longitude)
-        self.personalLocation(coordinates)
-    }
-}
-
-extension MapView: CLLocationManagerDelegate {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            let latitude = location.coordinate.latitude
-            let longitude = location.coordinate.longitude
-            let coordinate = Coordinates(latitude: latitude, longitude: longitude)
-            self.personalLocation(coordinate)
-            self.setCenterInMap(location: coordinate)
-            locationManager.stopUpdatingLocation()
+    private func setCenterInMap(location: Coordinates?) {
+        if let location = location {
+            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+            let region = MKCoordinateRegion(center: location.toCLLocationCoordinate2D(), span: span)
+            mkMapView.setRegion(region, animated: true)
         }
     }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        // Handle failure to get a user’s location
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if status == .authorizedAlways {
-            if CLLocationManager.isMonitoringAvailable(for: CLBeaconRegion.self) {
-                if CLLocationManager.isRangingAvailable() {
-                    locationManager.startUpdatingLocation()
-                }
-            }
-        }
-    }
-    
 }
 
 private extension Coordinates {

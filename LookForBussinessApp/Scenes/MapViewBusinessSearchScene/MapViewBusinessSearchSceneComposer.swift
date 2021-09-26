@@ -9,11 +9,22 @@ import Foundation
 import LookForBussiness
 
 public final class MapViewBusinessSearchSceneComposer {
+    private static func makeLocationManager() -> Locationable {
+        return LocationManager()
+    }
+    
+    private static var mapViewDelegate: MapViewDelegatable = {
+        MapViewDelegate()
+    }()
     static func makeMapViewBusinessSearchPresenter(getBusinesses: BusinessSearchable) -> MapViewBusinessSearchPresenter {
-        return MapViewBusinessSearchPresenter(getBusinesses: getBusinesses)
+        let locationManager = makeLocationManager()
+        
+        return MapViewBusinessSearchPresenter(getBusinesses: getBusinesses, locationManager: locationManager, mapViewDelegate: mapViewDelegate)
     }
     static func makeMapViewBusinessSearchViewController(getBusinesses: BusinessSearchable) -> MapViewBusinessSearchViewController {
         let presenter = makeMapViewBusinessSearchPresenter(getBusinesses: getBusinesses)
-        return MapViewBusinessSearchViewController(mapView: MapView(), presenter: presenter)
+        let mapView = MapView()
+        mapView.setDelegate(mapViewDelegate: mapViewDelegate)
+        return MapViewBusinessSearchViewController(mapView: mapView, presenter: presenter)
     }
 }
