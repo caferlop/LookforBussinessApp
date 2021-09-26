@@ -19,7 +19,6 @@ final class BusinessDetailsCordinator: Coordinator {
     init(navigationController: UINavigationController, bussinessDatilsViewController: BusinessDetailsViewController) {
         self.navigationController = navigationController
         self.bussinessDatilsViewController = bussinessDatilsViewController
-        
     }
     
     func start() {

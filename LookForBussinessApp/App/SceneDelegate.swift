@@ -24,26 +24,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private lazy var getBusinessDetailsUseCase: GetBusinessDetail = {
         GetBusinessDetail(restClient: remoteStore)
     }()
-    
-    private lazy var mapViewBusinessSearchViewController: MapViewBusinessSearchViewController = {
-        MapViewBusinessSearchSceneComposer.makeMapViewBusinessSearchViewController(getBusinesses: getBusinessUseCase)
-    }()
-    
-    private lazy var businessDetailsViewController: BusinessDetailsViewController = {
-        BusinessDetailSceneComposer.makeBusinessDetailsViewController(getBusinessDetails: getBusinessDetailsUseCase)
-    }()
         
-
     func setUpScene(windowScene: UIWindowScene, window: UIWindow) {
         let navigationController = UINavigationController()
+        let appFactory = AppFactory(getBusinesses: getBusinessUseCase, getBusinessDetails: getBusinessDetailsUseCase)
         
         self.window = window
-        
-        coordinator = KickOffCoordinator(navigationController: navigationController, mapViewBusinessesSearch: mapViewBusinessSearchViewController)
-        coordinator?.businessDetailsViewController = businessDetailsViewController
-        
+        coordinator = KickOffCoordinator(navigationController: navigationController, mapToBusinessScenes: appFactory)
         coordinator?.start()
-        
         
         self.window?.windowScene = windowScene
         self.window?.rootViewController = navigationController
@@ -52,22 +40,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        //guard let windowScene = (scene as? UIWindowScene) else { return }
-        //setUpScene(windowScene: windowScene, window: window)
-        if let windowScene = scene as? UIWindowScene {
-            let navController = UINavigationController()
-
-            // send that into our coordinator so that it can display view controllers
-            coordinator = KickOffCoordinator(navigationController: navController, mapViewBusinessesSearch: mapViewBusinessSearchViewController)
-            coordinator?.businessDetailsViewController = businessDetailsViewController
-            // tell the coordinator to take over control
-            coordinator?.start()
-
-            // create a basic UIWindow and activate it
-            window = UIWindow(windowScene: windowScene)
-            window?.rootViewController = navController
-            window?.makeKeyAndVisible()
-        }
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        setUpScene(windowScene: windowScene, window: window)
     }
 
 }

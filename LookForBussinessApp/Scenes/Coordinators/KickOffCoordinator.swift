@@ -11,31 +11,30 @@ import UIKit
 final class KickOffCoordinator:NSObject, Coordinator, UINavigationControllerDelegate {
     
     var childCoordinators = [Coordinator]()
-    
     var navigationController: UINavigationController
-    private let mapViewBusinessesSearch: MapViewBusinessSearchViewController
-    weak var businessDetailsViewController: BusinessDetailsViewController?
+    
+    private let mapToBusinessScenes: MapToBusinessScenes
     
     
-    init(navigationController: UINavigationController, mapViewBusinessesSearch: MapViewBusinessSearchViewController) {
+    init(navigationController: UINavigationController, mapToBusinessScenes: MapToBusinessScenes) {
         self.navigationController = navigationController
-        self.mapViewBusinessesSearch = mapViewBusinessesSearch
+        self.mapToBusinessScenes = mapToBusinessScenes
     }
     
     func start() {
         navigationController.delegate = self
-        self.mapViewBusinessesSearch.coordinator = self
-        self.navigationController.pushViewController(self.mapViewBusinessesSearch, animated: false)
+        let mapViewController = self.mapToBusinessScenes.makeMapBussinessSearchController()
+        mapViewController.coordinator = self
+        self.navigationController.pushViewController(mapViewController, animated: false)
     }
     
     func goToBusinessDetails(id: String) {
-        if let businessDetailsViewController = self.businessDetailsViewController {
-            let businessDetailsCoordinator = BusinessDetailsCordinator(navigationController: self.navigationController, bussinessDatilsViewController: businessDetailsViewController)
-            businessDetailsViewController.businessId = id
-            businessDetailsCoordinator.parentCoordinator = self
-            childCoordinators.append(businessDetailsCoordinator)
-            businessDetailsCoordinator.start()
-        }
+        let businessDetailsViewController = self.mapToBusinessScenes.makeBusinessDetailsController()
+        let businessDetailsCoordinator = BusinessDetailsCordinator(navigationController: self.navigationController, bussinessDatilsViewController: businessDetailsViewController)
+        businessDetailsViewController.businessId = id
+        businessDetailsCoordinator.parentCoordinator = self
+        childCoordinators.append(businessDetailsCoordinator)
+        businessDetailsCoordinator.start()
     }
     
     func childDidFinish(child: Coordinator) {
@@ -46,15 +45,8 @@ final class KickOffCoordinator:NSObject, Coordinator, UINavigationControllerDele
         }
     }
     
-    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
-        print("WILLSHOWVIEWCONTROLLER")
-    }
-    
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         // Read the view controller we’re moving from.
-        print("SHOWVIEWCONTROLLER")
-        print("childcoordinators", childCoordinators)
-        print(navigationController.viewControllers)
         guard let fromViewController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
             return
         }
@@ -69,6 +61,5 @@ final class KickOffCoordinator:NSObject, Coordinator, UINavigationControllerDele
             // We're popping a buy view controller; end its coordinator
             childDidFinish(child: businessDetails.coordinator!)
         }
-        print("childcoordinators", childCoordinators)
     }
 }
