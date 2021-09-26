@@ -27,7 +27,7 @@ final class BusinessDetailsPresenter: BusinesViewDetailable {
     
     func getBusinessDetails(id: String, completion: @escaping (BusinessDetailsResult) -> Void) {
         let request = GetBusinessDetailEndPoint.getBusinessDetailById(id: id)
-        self.getBusinessDetail.getBusinessDetail(request: request) { result in
+        self.getBusinessDetail.getBusinessDetail(request: request) {  result in
             switch result {
             case .success(let businessDetails):
                 let businessDetailsDataModel = businessDetails.toBusinessDetailsDataModel()

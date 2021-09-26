@@ -36,7 +36,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func setUpScene(windowScene: UIWindowScene, window: UIWindow) {
         let navigationController = UINavigationController()
+        
         self.window = window
+        
         coordinator = KickOffCoordinator(navigationController: navigationController, mapViewBusinessesSearch: mapViewBusinessSearchViewController)
         coordinator?.businessDetailsViewController = businessDetailsViewController
         
@@ -50,9 +52,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        let window = UIWindow(windowScene: windowScene)
-        setUpScene(windowScene: windowScene, window: window)
+        //guard let windowScene = (scene as? UIWindowScene) else { return }
+        //setUpScene(windowScene: windowScene, window: window)
+        if let windowScene = scene as? UIWindowScene {
+            let navController = UINavigationController()
+
+            // send that into our coordinator so that it can display view controllers
+            coordinator = KickOffCoordinator(navigationController: navController, mapViewBusinessesSearch: mapViewBusinessSearchViewController)
+            coordinator?.businessDetailsViewController = businessDetailsViewController
+            // tell the coordinator to take over control
+            coordinator?.start()
+
+            // create a basic UIWindow and activate it
+            window = UIWindow(windowScene: windowScene)
+            window?.rootViewController = navController
+            window?.makeKeyAndVisible()
+        }
     }
 
 }

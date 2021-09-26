@@ -10,20 +10,21 @@ import UIKit
 
 
 final class BusinessDetailsCordinator: Coordinator {
-    var childCoordinators: [Coordinator] = []
+    var childCoordinators = [Coordinator]()
     weak var parentCoordinator: KickOffCoordinator?
     
     var navigationController: UINavigationController
-    private let bussinessDatilsViewController: BusinessDetailsViewController
+    private weak var bussinessDatilsViewController: BusinessDetailsViewController?
     
     init(navigationController: UINavigationController, bussinessDatilsViewController: BusinessDetailsViewController) {
         self.navigationController = navigationController
         self.bussinessDatilsViewController = bussinessDatilsViewController
-        self.bussinessDatilsViewController.coordinator = self
+        
     }
     
     func start() {
-        navigationController.pushViewController(self.bussinessDatilsViewController, animated: false)
+        self.bussinessDatilsViewController?.coordinator = self
+        navigationController.pushViewController(self.bussinessDatilsViewController!, animated: false)
     }
     
 }

@@ -75,6 +75,13 @@ class BusinessDetailsViewController: UIViewController {
         self.getBusinessDetails()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    deinit {
+        print("BusinessDetails gone")
+    }
     private func setupUI() {
         self.nameLabel.text = "Loading name"
         self.phoneLabel.text = "Loading phone"
@@ -99,12 +106,12 @@ class BusinessDetailsViewController: UIViewController {
                 self.imageView.load(url: url)
             }
             
-            self.detailsStackView.addArrangedSubview(self.nameLabel)
-            self.detailsStackView.addArrangedSubview(self.phoneLabel)
-            self.detailsStackView.addArrangedSubview(self.addressLabel)
-            
-            self.mainStackView.addArrangedSubview(self.imageView)
-            self.mainStackView.addArrangedSubview(self.detailsStackView)
+//            self.detailsStackView.addArrangedSubview(self.nameLabel)
+//            self.detailsStackView.addArrangedSubview(self.phoneLabel)
+//            self.detailsStackView.addArrangedSubview(self.addressLabel)
+//            
+//            self.mainStackView.addArrangedSubview(self.imageView)
+//            self.mainStackView.addArrangedSubview(self.detailsStackView)
         }
     }
     
